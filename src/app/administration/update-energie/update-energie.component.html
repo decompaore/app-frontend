@@ -1,0 +1,26 @@
+<h3>Modifier énergie</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Type</label>
+      <input type="text" class="form-control" id="type" required [(ngModel)]="energie.type" name="type">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Source primaire</label>
+      <input type="text" class="form-control" id="primaire" required [(ngModel)]="energie.primaire" name="primaire">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Source secondaire</label>
+      <input type="text" class="form-control" id="secondaire" required [(ngModel)]="energie.secondaire" name="secondaire">
+    </div>
+
+    <div class="form-group">
+        <label for="name">Puissance</label>
+        <input type="text" class="form-control" id="puissance" required [(ngModel)]="energie.puissance" name="puissance">
+      </div>
+
+    <button type="submit" class="btn btn-success">Modifier</button>
+  </form>
+</div>

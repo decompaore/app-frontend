@@ -1,0 +1,29 @@
+<div class="div-search-site">
+    <fieldset class="fieldset-search-site">
+        <legend><b>RECHERCHE DES SITES</b></legend>
+        <form #searchSiteForm="ngForm" (ngSubmit)="searchSiteByType(searchSiteForm)">
+            <label for="Rechercher par" class="search-label">Rechercher par:</label><select class="search-select" name="type" required [(ngModel)]="displayType"><option *ngFor="let type of types" [value]="type">{{type}}</option></select>
+          <ng-container *ngIf="displayType==='Nom'"><label for="Nom" class="search-label">Nom:</label><input name="nom" class="search-input" type="text" required [(ngModel)]="site.nom"></ng-container>
+          <ng-container *ngIf="displayType==='Typologie'"><label for="Typologie" class="search-label">Typologie:</label><input name="typologie" class="search-input" type="text" required [(ngModel)]="site.typologie"></ng-container>
+          <ng-container *ngIf="displayType==='Technologie'"><label for="Technologie" class="search-label">Technologie:</label><input name="technologie" class="search-input" type="text" required [(ngModel)]="site.technologie"></ng-container>
+          <ng-container *ngIf="displayType==='Zem'"><label for="Zem" class="search-label">Zem:</label><input name="zem" class="search-input" type="text" required [(ngModel)]="site.zem"></ng-container>
+
+          <input value="Search" class="search-submit-button" type=submit [disabled]="!searchSiteForm.form.valid"/> 
+       </form>
+       <br/><br/>
+       <ng-container *ngIf="isNoResult && isFormSubmitted"><span class="span-no-result">Pas de résultat</span></ng-container>
+       <ng-container *ngIf="!isNoResult && isFormSubmitted">
+          <table>
+             <tr><th *ngFor="let head of headsTab">{{head}}</th><th></th><th></th></tr>
+             <tr class="{{site.nom}}" *ngFor="let s of searchSitesResult._embedded.sites">
+               <td>{{site.typologie}}</td>
+               <td>{{site.technologie}}</td>
+               <td>{{site.zem}}</td>
+               <td>{{site.latitude}}</td>
+               <td>{{site.longitude}}</td>
+             </tr>
+          </table>
+       </ng-container>
+    </fieldset>
+    
+</div>

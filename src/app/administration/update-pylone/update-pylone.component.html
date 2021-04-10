@@ -1,0 +1,21 @@
+<h3>Modifier pylone</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Type</label>
+      <input type="text" class="form-control" id="type" required [(ngModel)]="pylone.type" name="type">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Terrain</label>
+      <input type="text" class="form-control" id="terrain" required [(ngModel)]="pylone.terrain" name="terrain">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Hauteur</label>
+      <input type="text" class="form-control" id="hauteur" required [(ngModel)]="pylone.hauteur" name="hauteur">
+    </div>
+
+    <button type="submit" class="btn btn-success">Modifier</button>
+  </form>
+</div>

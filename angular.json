@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "installation-ui": {
@@ -24,9 +24,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js"
+              
+            ]
           },
           "configurations": {
             "production": {
@@ -61,6 +66,7 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "proxyConfig": "src/proxy.conf.json",
           "options": {
             "browserTarget": "installation-ui:build"
           },
@@ -88,9 +94,18 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [ 
+              "node_modules/keycloak-js/dist/keycloak.min.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+              
+          
+              
+
+            ]
           }
         },
         "lint": {
@@ -119,6 +134,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "installation-ui"
+    }
+  },
+  "defaultProject": "installation-ui",
+  "cli": {
+    "analytics": "992720ec-1478-4458-b2dd-e9f478e1e79f"
+  }
 }

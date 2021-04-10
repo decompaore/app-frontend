@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'installation-ui';
+  title = 'Telecel Faso RAN Installation';
 }

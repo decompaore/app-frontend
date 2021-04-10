@@ -1,0 +1,26 @@
+<h3>Modifier batterie</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Fabriquant</label>
+      <input type="text" class="form-control" id="fabriquant" required [(ngModel)]="generateur.fabriquant" name="fabriquant">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Kva</label>
+      <input type="text" class="form-control" id="kva" required [(ngModel)]="generateur.kva" name="kva">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Cuve</label>
+      <input type="text" class="form-control" id="cuve" required [(ngModel)]="generateur.cuve" name="cuve">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Site</label>
+      <select class="site-select" name="id" required [(ngModel)]="generateur.site.id"><option *ngFor="let s of sites" [value]="s.id"></option></select>
+      </div>
+
+    <button type="submit" class="btn btn-success">Modifier</button>
+  </form>
+</div>

@@ -1,0 +1,71 @@
+<h3>Modifier un site</h3>
+<div class="site">
+  <div [hidden]="submitted" style="width: 400px;">
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Nom du site</label>
+        <input type="text" class="form-control" id="nom" required [(ngModel)]="site.nom" name="nom">
+      </div>
+
+      <div class="form-group">
+        <label for="name">Typologie du site</label>
+        <input type="text" class="form-control" id="typologie" required [(ngModel)]="site.typologie" name="typologie">
+      </div>
+
+      <div class="form-group">
+        <label for="name">Technologie sur le site </label>
+        <input type="text" class="form-control" id="technologie" required [(ngModel)]="site.technologie" name="technologie">
+      </div>
+
+      <div class="form-group">
+        <label for="name">Zem du site</label>
+        <input type="text" class="form-control" id="zem" required [(ngModel)]="site.zem" name="zem">
+      </div>
+
+      <div class="form-group">
+        <label for="name">Latitude</label>
+        <input type="text" class="form-control" id="latitude" required [(ngModel)]="site.latitude" name="latitude">
+      </div>
+
+      <div class="form-group">
+        <label for="name">Longitude</label>
+        <input type="text" class="form-control" id="longitude" required [(ngModel)]="site.longitude" name="longitude">
+      </div>
+
+  
+<div class="select">
+    <div class="form-group">
+		<label for="name">Batterie sur le site</label>
+		<select class="site-select" name="batterieId" required [(ngModel)]="site.batterie.id"><option *ngFor="let b of batteries._embedded.batteries" [value]="b.id">{{b.id}}</option></select> 
+	</div>
+
+	<div class="form-group">
+		<label for="name">Energie du site</label>
+		<select class="site-select" name="energieId" required [(ngModel)]=site.energie.id><option *ngFor="let e of energies._embedded.energies" [value]="e.id">{{e.id}}</option></select> 
+	</div>
+
+	<div class="form-group">
+		<label for="name">Pylone du site</label>
+		<select class="site-select" name="pyloneId" required [(ngModel)]=site.pylone.id><option *ngFor="let p of pylones._embedded.pylones" [value]="p.id">{{p.id}}</option></select> 
+	  </div>
+
+	<div class="form-group" >
+		<label for="name">Radio du site </label>
+		<select class="site-select" name="radioId" required [(ngModel)]=site.radio.id><option *ngFor="let r of radios._embedded.radios" [value]="r.id">{{r.id}}</option></select> 
+	</div>
+
+	<div class="form-group">
+		<label for="name">Trans du site</label>
+		<select class="site-select" name="transId" required [(ngModel)]="site.trans.id"><option *ngFor="let t of transes._embedded.transes" [value]="t.id">{{t.id}}</option></select>
+	</div>
+
+</div>
+
+  
+
+
+
+      <button type="submit" class="btn btn-success" (click)="updateSite(site)">Modifier</button>
+    </form>
+  </div>
+</div>

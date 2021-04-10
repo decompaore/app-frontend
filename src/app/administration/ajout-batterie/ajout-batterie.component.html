@@ -1,0 +1,26 @@
+<h3>Ajout de nouvelles batteries</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Type</label>
+      <input type="text" class="form-control" id="type" required [(ngModel)]="batterie.type" name="type">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Marque</label>
+      <input type="text" class="form-control" id="marque" required [(ngModel)]="batterie.marque" name="marque">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Nombre</label>
+      <input type="number" class="form-control" id="nombre" required [(ngModel)]="batterie.nombre" name="nombre">
+    </div>
+
+    <button type="submit" class="btn btn-success">Ajouter</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+<!--   <h4>Les nouvelles batteries ont été ajoutées avec succèss !</h4>  -->
+  <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
+</div>

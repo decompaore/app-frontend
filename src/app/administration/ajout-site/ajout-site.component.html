@@ -1,0 +1,36 @@
+<app-message-modal *ngIf="displayMessageModal" [messageModal]="messageModal"></app-message-modal>
+
+<div class="div-site-form">
+	<fieldset>
+        <legend><b>{{titleSave}}</b></legend>
+		  <form #addSiteForm="ngForm" (ngSubmit)="onSubmit()">
+			 <span><label for="Nom" class="site-label">Nom:</label><input name="nom" class="site-input" type="text" required [(ngModel)]="site.nom"></span>
+			 <span><label for="Typologie" class="site-label">Typologie:</label><input name="typologie" class="site-input" type="text" required [(ngModel)]="site.typologie"></span>
+			 <span><label for="Technologie" class="site-label">Technologie:</label><input name="technologie" class="site-input" type="text" required [(ngModel)]="site.technologie"></span>
+			 <span><label for="Zem" class="site-label">Zem:</label><input name="zem" class="site-input" type= "text" [(ngModel)]="site.zem"></span>
+			 <span><label for="Latitude" class="site-label">Latitude:</label><input name="latitude" class="site-input" type="number" required [(ngModel)]="site.latitude"></span>
+			 <span><label for="Longitude" class="site-label">Longitude:</label><input name="longitude" class="site-input" type="number" required [(ngModel)]="site.longitude"></span>
+			 <span><label for="Batterie" class="site-label">Batterie:</label><input name="batterie" class="site-input" type="number" required [(ngModel)]="site.batterie.id"></span>
+			 <span><label for="Energie" class="site-label">Energie:</label><input name="energie" class="site-input" type="number" required [(ngModel)]="site.energie.id"></span>
+			 <span><label for="Pylone" class="site-label">Pylone:</label><input name="pylone" class="site-input" type="number" required [(ngModel)]="site.pylone.id"></span>
+			 <span><label for="Radio" class="site-label">Radio:</label><input name="radio" class="site-input" type="number" required [(ngModel)]="site.radio.id"></span>
+			 <span><label for="Trans" class="site-label">Trans:</label><input name="trans" class="site-input" type="number" required [(ngModel)]="site.trans.id"></span>
+			 
+			 
+			 <span><input [value]="actionButton" class="site-submit-button" type=submit [disabled]="!addSiteForm.form.valid"/></span>
+			 <span class="span-site-submit"></span>
+		  </form>
+		  <button class="clear-form-button" (click)="clearForm(addSiteForm)">Effacer</button>
+	</fieldset>
+</div>
+
+
+
+
+
+
+
+
+
+
+

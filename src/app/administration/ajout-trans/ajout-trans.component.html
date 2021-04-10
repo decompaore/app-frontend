@@ -1,0 +1,26 @@
+<h3>Ajout de nouvelle trans</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Type</label>
+      <input type="text" class="form-control" id="type" required [(ngModel)]="trans.type" name="type">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Capacité</label>
+      <input type="text" class="form-control" id="capacite" required [(ngModel)]="trans.capacite" name="lastName">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Constructeur</label>
+      <input type="text" class="form-control" id="constructeur" required [(ngModel)]="trans.constructeur" name="emailId">
+    </div>
+
+    <button type="submit" class="btn btn-success">Ajouter</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>La trans a été ajouté avec succèss !</h4>
+  <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
+</div>

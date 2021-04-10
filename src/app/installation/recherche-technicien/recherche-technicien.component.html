@@ -1,0 +1,49 @@
+<div class="horizontal-menu">
+   <nav class="navbar navbar-expand-sm bg-light navbar-light">
+     <ul class="navbar-nav">
+       <li class="nav-item active"><a class="navbar-brand" href="#"><img src="assets\logo-telecel.jpg" alt="Logo" style="width:80px;"></a></li>
+       <li class="nav-item"><a class="nav-link" href="recherche-batterie-page">Batterie</a></li>
+       <li class="nav-item"><a class="nav-link" href="recherche-energie-page">Energie</a></li>
+       <li class="nav-item"><a class="nav-link" href="recherche-generateur-page">Group</a></li>
+       <li class="nav-item"><a class="nav-link" href="recherche-pylone-page">Pylone</a></li>
+       <li class="nav-item"><a class="nav-link" href="recherche-radio-page">Radio</a></li>
+       <li class="nav-item"><a class="nav-link" href="recherche-trans-page">Trans</a></li>
+       <li class="nav-item"><a class="nav-link" href="usager-page">Page usager</a></li>
+       <ul class=" nav navbar-nav navbar-right">
+         <li class="nav-item" align="navbar-right"><a class="nav-link active" aria-current="page" href="#">Deconnexion</a></li>
+       </ul>
+     </ul>
+   </nav>
+</div>
+   <div class="div-search-site">
+       <fieldset class="fieldset-search-site">
+           <legend><b>RECHERCHE DES SITES</b></legend>
+           <form #searchSiteForm="ngForm" (ngSubmit)="searchSiteByFeature(searchSiteForm)">
+               <label for="Rechercher par" class="search-label">Rechercher par:</label><select class="search-select" name="type" required [(ngModel)]="displayType"><option *ngFor="let type of types" [value]="type">{{type}}</option></select>
+             <ng-container *ngIf="displayType==='Base'"><label for="Base" class="search-label">Station de base:</label><input name="base" class="search-input" type="text" required [(ngModel)]=base></ng-container>
+             <ng-container *ngIf="displayType==='Config'"><label for="Config" class="search-label">Configuration radio:</label><input name="config" class="search-input" type="text" required [(ngModel)]=config></ng-container>
+             <ng-container *ngIf="displayType==='Constructeur'"><label for="Constructeur" class="search-label">Constructeur de la trans:</label><input name="constructeur" class="search-input" type="text" required [(ngModel)]=constructeur></ng-container>
+             <ng-container *ngIf="displayType==='Capacite'"><label for="Capacite" class="search-label">Capacité de la trans:</label><input name="capacite" class="search-input" type="text" required [(ngModel)]=capacite></ng-container>
+             <ng-container *ngIf="displayType==='Typetrans'"><label for="Typetrans" class="search-label">Type de la trans:</label><input name="typetrans" class="search-input" type="text" required [(ngModel)]=type></ng-container>
+             <ng-container *ngIf="displayType==='Terrain'"><label for="Terrain" class="search-label">Propriétaire du pylone:</label><input name="proprietaire" class="search-input" type="text" required [(ngModel)]=terrain></ng-container>
+
+   
+             <input value="Search" class="search-submit-button" type=submit [disabled]="!searchSiteForm.form.valid"/> 
+          </form>
+          <br/><br/>
+          <ng-container *ngIf="isNoResult && isFormSubmitted"><span class="span-no-result">Pas de résultat</span></ng-container>
+          <ng-container *ngIf="!isNoResult && isFormSubmitted">
+             <table>
+                <tr><th *ngFor="let head of headsTab">{{head}}</th></tr>
+                <tr  *ngFor="let s of searchSitesResult._embedded.sites">
+                  <td>{{s.nom}}</td>
+                  <td>{{s.technologie}}</td>
+                  <td>{{s.typologie}}</td>
+                  <td>{{s.zem}}</td>
+                </tr>
+             </table>
+          </ng-container>
+       </fieldset>
+       
+   </div>
+   
